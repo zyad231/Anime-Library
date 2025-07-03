@@ -8,7 +8,7 @@
       href="https://fonts.googleapis.com/css2?family=Bungee&display=swap"
       rel="stylesheet"
     />
-    <title>Document</title>
+    <title>Anime Library</title>
     <style>
       .font-bungee {
         font-family: "Bungee", cursive;
@@ -18,50 +18,53 @@
 
   <body class="bg-gray-900">
     <main class="flex flex-col">
-      <header class="flex justify-between items-center px-6 py-4 shadow-md bg-gray-800">
-        <div class="text-2xl font-bungee text-violet-400">Anime Library</div>
-        <div class="flex gap-4">
+      <!-- Improved mobile header -->
+      <header class="flex flex-col sm:flex-row justify-between items-center px-4 sm:px-6 py-4 shadow-md bg-gray-800 gap-4 sm:gap-0">
+        <div class="text-xl sm:text-2xl font-bungee text-violet-400 text-center sm:text-left">
+          Anime Library
+        </div>
+        <div class="flex flex-col sm:flex-row gap-2 sm:gap-4 w-full sm:w-auto">
           <a
             href="login.html"
-            class="text-white bg-indigo-600 hover:bg-indigo-700 px-4 py-2 rounded-lg transition"
+            class="text-white bg-indigo-600 hover:bg-indigo-700 px-4 py-2 rounded-lg transition text-center whitespace-nowrap text-sm sm:text-base"
           >
             Sign In
           </a>
           <a
             href="register.html"
-            class="text-white bg-violet-600 hover:bg-violet-700 px-4 py-2 rounded-lg transition"
+            class="text-white bg-violet-600 hover:bg-violet-700 px-4 py-2 rounded-lg transition text-center text-sm sm:text-base"
           >
             Register
           </a>
         </div>
       </header>
-      <section class="bg-gray-900 text-white py-20 px-6">
-        <div
-          class="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-10"
-        >
+
+      <!-- Improved hero section -->
+      <section class="bg-gray-900 text-white py-12 sm:py-16 lg:py-20 px-4 sm:px-6">
+        <div class="max-w-7xl mx-auto flex flex-col lg:flex-row items-center justify-between gap-8 lg:gap-10">
           <!-- Text content -->
-          <div class="flex-1 text-center md:text-left">
-            <h1 class="text-4xl md:text-5xl font-bungee text-violet-400 mb-6">
+          <div class="flex-1 text-center lg:text-left order-2 lg:order-1">
+            <h1 class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bungee text-violet-400 mb-4 sm:mb-6 leading-tight">
               Explore Your Anime Universe 🌌
             </h1>
-            <p class="text-lg md:text-xl text-gray-300 mb-8">
+            <p class="text-base sm:text-lg lg:text-xl text-gray-300 mb-6 sm:mb-8 leading-relaxed">
               Dive into your favorite shows, know everything about your favorite animes and discover
               new adventures.
             </p>
             <a
               href="register.html"
-              class="inline-block bg-indigo-600 hover:bg-indigo-700 text-white px-6 py-3 rounded-lg text-lg transition"
+              class="inline-block bg-indigo-600 hover:bg-indigo-700 text-white px-6 py-3 rounded-lg text-base sm:text-lg transition w-full sm:w-auto text-center"
             >
               Get Started
             </a>
           </div>
 
-          <!-- Image / Illustration (optional) -->
-          <div class="flex-1">
+          <!-- Image -->
+          <div class="flex-1 order-1 lg:order-2 w-full">
             <img
               src="https://tse2.mm.bing.net/th/id/OIP.A39L_vWZtP-q5xL1-XCczQHaHa?r=0&rs=1&pid=ImgDetMain&o=7&rm=3"
               alt="Anime Pirate"
-              class="rounded-xl shadow-lg max-w-full mx-auto md:max-w-md"
+              class="rounded-xl shadow-lg w-full max-w-sm sm:max-w-md mx-auto"
             />
           </div>
         </div>

@@ -2,6 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Anime Library</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link
@@ -15,96 +16,99 @@
     </style>
   </head>
   <body class="bg-gray-900 text-white min-h-screen">
-    <!-- Header -->
-    <header
-      class="flex items-center justify-between px-6 py-4 shadow-md bg-gray-800 sticky top-0 self-start"
-    >
-      <h1 class="text-2xl font-bungee text-indigo-500">Anime Library</h1>
-      
+    <!-- Mobile-optimized Header -->
+    <header class="flex flex-col sm:flex-row items-center justify-between px-4 sm:px-6 py-4 shadow-md bg-gray-800 sticky top-0 z-10 gap-4 sm:gap-0">
+      <h1 class="text-xl sm:text-2xl font-bungee text-indigo-500">Anime Library</h1>
       <a
         href="login.html"
-        class="text-white px-4 py-2 bg-indigo-600 rounded hover:bg-indigo-700 transition"
-        >Logout</a
+        class="text-white px-4 py-2 bg-indigo-600 rounded hover:bg-indigo-700 transition text-sm sm:text-base"
       >
+        Logout
+      </a>
     </header>
 
     <!-- Main Content -->
-    <main class="w-full px-4 py-8 flex flex-col md:flex-row gap-6">
-      <!-- Sidebar Filter -->
-      <aside
-        class="sm:w-full md:w-64 bg-gray-800 rounded-lg p-4 space-y-4 shrink-0 md:sticky md:top-24 md:self-start"
-      >
-        <h2 class="text-xl font-semibold text-indigo-400 mb-2">Filters</h2>
+    <main class="w-full px-4 py-6 sm:py-8 flex flex-col lg:flex-row gap-6">
+      <!-- Mobile-first Sidebar Filter -->
+      <aside class="w-full lg:w-64 bg-gray-800 rounded-lg p-4 space-y-4 lg:shrink-0 lg:sticky lg:top-24 lg:self-start">
+        <h2 class="text-lg sm:text-xl font-semibold text-indigo-400 mb-4">Filters</h2>
 
-        <!-- Genre Filter -->
-        <div>
-          <label class="block mb-1 text-sm text-gray-300">Genre</label>
-          <select id="genreFilter"
-            class="w-full bg-gray-700 text-white rounded px-3 py-2 focus:ring-2 focus:ring-indigo-500"
+        <!-- Search - moved to top for mobile -->
+        <div class="flex flex-col gap-2">
+          <input
+            id="searchInput"
+            type="text"
+            placeholder="Search anime..."
+            class="w-full px-4 py-3 rounded-lg bg-gray-700 text-white focus:outline-none focus:ring-2 focus:ring-indigo-500 text-base"
+          />
+          <button
+            id="searchBtn"
+            class="w-full px-4 py-3 bg-indigo-600 text-white rounded-lg hover:bg-indigo-700 transition font-medium"
           >
-          <option value="">All</option>
-          <option value="1">Action</option>
-          <option value="22">Romance</option>
-          <option value="4">Comedy</option>
-          <option value="10">Fantasy</option>
-          </select>
+            Search
+          </button>
         </div>
 
-        <!-- Type Filter -->
-        <div>
-          <label  class="block mb-1 text-sm text-gray-300">Type</label>
-          <select id="typeFilter"
-            class="w-full bg-gray-700 text-white rounded px-3 py-2 focus:ring-2 focus:ring-indigo-500"
-          >
-            <option value="">All</option>
-            <option value="tv">TV</option>
-            <option value="movie">Movie</option>
-            <option value="ova">OVA</option>
-          </select>
+        <!-- Filters in mobile-friendly grid -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-1 gap-4">
+          <!-- Genre Filter -->
+          <div>
+            <label class="block mb-2 text-sm font-medium text-gray-300">Genre</label>
+            <select
+              id="genreFilter"
+              class="w-full bg-gray-700 text-white rounded-lg px-3 py-3 focus:ring-2 focus:ring-indigo-500 text-base"
+            >
+              <option value="">All Genres</option>
+              <option value="1">Action</option>
+              <option value="22">Romance</option>
+              <option value="4">Comedy</option>
+              <option value="10">Fantasy</option>
+            </select>
+          </div>
+
+          <!-- Type Filter -->
+          <div>
+            <label class="block mb-2 text-sm font-medium text-gray-300">Type</label>
+            <select
+              id="typeFilter"
+              class="w-full bg-gray-700 text-white rounded-lg px-3 py-3 focus:ring-2 focus:ring-indigo-500 text-base"
+            >
+              <option value="">All Types</option>
+              <option value="tv">TV</option>
+              <option value="movie">Movie</option>
+              <option value="ova">OVA</option>
+            </select>
+          </div>
         </div>
 
         <!-- Rating Filter -->
         <div>
-          <label class="block mb-1 text-sm text-gray-300">Minimum Rating</label>
+          <label class="block mb-2 text-sm font-medium text-gray-300">Minimum Rating</label>
           <input
             type="range"
             min="0"
             max="10"
             step="0.1"
             value="7"
-            class="w-full accent-indigo-500"
+            class="w-full accent-indigo-500 h-2"
             id="ratingFilter"
           />
-          <p id="ratingValue" class="text-sm text-gray-400 mt-1">Rating: 7+</p>
+          <p id="ratingValue" class="text-sm text-gray-400 mt-2">Rating: 7+</p>
         </div>
-        <div class=" flex flex-col items-center gap-2">
-            <input
-              id="searchInput"
-              type="text"
-              placeholder="Search anime by name..."
-              class="w-full px-4 py-2 rounded-lg bg-gray-700 text-white focus:outline-none focus:ring-2 focus:ring-indigo-500"
-            />
-            <button
-              id="searchBtn"
-              class="w-full px-4 py-2 bg-indigo-600 text-white rounded hover:bg-indigo-700"
-            >
-              Search
-            </button>
-          </div>
       </aside>
 
       <!-- Anime Grid -->
       <section class="flex-1">
-        <h2 class="text-2xl font-semibold text-indigo-400 mb-4">All Anime</h2>
+        <h2 class="text-xl sm:text-2xl font-semibold text-indigo-400 mb-4 sm:mb-6">All Anime</h2>
         <div
           id="animeGrid"
-          class="grid gap-6 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4"
+          class="grid gap-4 sm:gap-6 grid-cols-2 sm:grid-cols-3 lg:grid-cols-3 xl:grid-cols-4"
         >
           <!-- Anime cards will be injected here by JS -->
         </div>
         <div
           id="pagination"
-          class="flex justify-center items-center gap-4 mt-8"
+          class="flex flex-wrap justify-center items-center gap-2 sm:gap-4 mt-6 sm:mt-8"
         ></div>
       </section>
     </main>
