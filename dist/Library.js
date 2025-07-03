@@ -10,13 +10,52 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 };
 const animeGrid = document.getElementById("animeGrid");
 const paginationControls = document.getElementById("pagination");
+const searchInput = document.getElementById("searchInput");
+const searchBtn = document.getElementById("searchBtn");
+const ratingValue = document.getElementById("ratingValue");
+const genreFilter = document.getElementById("genreFilter");
+const typeFilter = document.getElementById("typeFilter");
+const ratingFilter = document.getElementById("ratingFilter");
+searchBtn.addEventListener("click", () => {
+    currentPage = 1;
+    fetchAnime(currentPage);
+});
+searchInput.addEventListener('keypress', (e) => {
+    if (e.key === 'Enter') {
+        e.preventDefault();
+        currentPage = 1;
+        fetchAnime(currentPage);
+    }
+});
+[genreFilter, typeFilter, ratingFilter].forEach((el) => {
+    el.addEventListener("change", () => {
+        currentPage = 1;
+        ratingValue.innerHTML = `Rating ${ratingFilter.value}+`;
+        fetchAnime(currentPage);
+    });
+});
 let currentPage = 1;
 let lastPage = 1;
 function fetchAnime() {
     return __awaiter(this, arguments, void 0, function* (page = 1) {
         try {
             animeGrid.innerHTML = `<p class="text-gray-400 text-center col-span-full">Loading...</p>`;
-            const response = yield fetch(`https://api.jikan.moe/v4/anime?page=${page}`);
+            const query = searchInput.value.trim();
+            const genre = genreFilter.value;
+            const type = typeFilter.value;
+            const rating = ratingFilter.value;
+            const params = new URLSearchParams();
+            params.set("page", page.toString());
+            if (query)
+                params.set("q", query);
+            if (genre)
+                params.set("genres", genre);
+            if (type)
+                params.set("type", type);
+            if (rating)
+                params.set("min_score", rating);
+            const url = `https://api.jikan.moe/v4/anime?${params.toString()}`;
+            const response = yield fetch(url);
             const data = yield response.json();
             const animeList = data.data;
             lastPage = data.pagination.last_visible_page;
@@ -25,7 +64,7 @@ function fetchAnime() {
             updatePagination();
         }
         catch (error) {
-            animeGrid.innerHTML = `<p class="text-red-500">Failed to load anime.</p>`;
+            animeGrid.innerHTML = `<p class="text-red-500 text-center col-span-full">Failed to load anime.</p>`;
             console.error(error);
         }
     });
