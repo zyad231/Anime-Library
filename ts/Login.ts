@@ -43,7 +43,7 @@ form.addEventListener("submit", (e) => {
     sessionStorage.setItem("isLoggedIn", "true");
 
     // Redirect to library page
-    window.location.replace("Library.html");
+    window.location.replace("library.html");
   } else {
     showMessage("Invalid email or password", "red");
   }

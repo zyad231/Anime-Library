@@ -71,7 +71,7 @@ form.addEventListener("submit", (e) => {
 
   showMessage("Account created successfully! Redirecting...", "green");
   setTimeout(() => {
-    window.location.href = "Login.html";
+    window.location.href = "login.html";
   }, 1500);
 });
 

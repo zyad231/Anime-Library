@@ -82,7 +82,7 @@ function displayAnime(animeList) {
        class="w-full h-56 object-cover bg-black" />
   <div class="p-4">
     <h3 class="text-lg font-semibold text-indigo-300">
-      <a href="Details.html?id=${anime.mal_id}" class="hover:underline">
+      <a href="details.html?id=${anime.mal_id}" class="hover:underline">
         ${anime.title}
       </a>
     </h3>
