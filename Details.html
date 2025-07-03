@@ -1,0 +1,35 @@
+<!-- details.html -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Anime Details</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+      .font-bungee {
+        font-family: "Bungee", cursive;
+      }
+    </style>
+  </head>
+  <body class="bg-gray-900 text-white min-h-screen">
+    <header
+      class="flex items-center justify-between px-6 py-4 shadow-md bg-gray-800 sticky top-0 self-start"
+    >
+      <h1 class="text-2xl font-bungee text-indigo-500">Anime Library</h1>
+      <div class="flex gap-4">
+        <a
+          href="Library.html"
+          class="text-white px-4 py-2 bg-indigo-600 rounded hover:bg-indigo-700 transition"
+          >Back to library</a
+        ><a
+          href="Login.html"
+          class="text-white px-4 py-2 bg-indigo-600 rounded hover:bg-indigo-700 transition"
+          >Logout</a
+        >
+      </div>
+    </header>
+    <div id="animeDetails" class="max-w-6xl p-2"></div>
+
+    <script type="module" src="dist/Details.js"></script>
+  </body>
+</html>

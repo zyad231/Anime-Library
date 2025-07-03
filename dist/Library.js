@@ -20,8 +20,8 @@ searchBtn.addEventListener("click", () => {
     currentPage = 1;
     fetchAnime(currentPage);
 });
-searchInput.addEventListener('keypress', (e) => {
-    if (e.key === 'Enter') {
+searchInput.addEventListener("keypress", (e) => {
+    if (e.key === "Enter") {
         e.preventDefault();
         currentPage = 1;
         fetchAnime(currentPage);
@@ -78,13 +78,19 @@ function displayAnime(animeList) {
         card.className =
             "bg-gray-800 rounded-lg overflow-hidden shadow hover:shadow-lg transition";
         card.innerHTML = `
-      <img src="${imgUrl}" alt="${anime.title}" 
-           class="w-full h-56 object-contain bg-black p-1" />
-      <div class="p-4">
-        <h3 class="text-lg font-semibold text-indigo-300">${anime.title}</h3>
-        <p class="text-sm text-gray-400 mt-2 line-clamp-3">${anime.synopsis || "No description."}</p>
-      </div>
-    `;
+  <img src="${imgUrl}" alt="${anime.title}" 
+       class="w-full h-56 object-cover bg-black" />
+  <div class="p-4">
+    <h3 class="text-lg font-semibold text-indigo-300">
+      <a href="details.html?id=${anime.mal_id}" class="hover:underline">
+        ${anime.title}
+      </a>
+    </h3>
+    <p class="text-sm text-gray-400 mt-2 line-clamp-3">
+      ${anime.synopsis || "No description."}
+    </p>
+  </div>
+`;
         animeGrid.appendChild(card);
     });
 }
