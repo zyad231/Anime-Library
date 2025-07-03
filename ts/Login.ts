@@ -42,8 +42,8 @@ form.addEventListener("submit", (e) => {
     localStorage.setItem("userName", matchedUser.username);
     sessionStorage.setItem("isLoggedIn", "true");
 
-    // Redirect to exam page
-    window.location.replace("exam.html");
+    // Redirect to library page
+    window.location.replace("Library.html");
   } else {
     showMessage("Invalid email or password", "red");
   }

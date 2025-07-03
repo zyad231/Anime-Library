@@ -1,11 +1,10 @@
-"use strict";
 // Load users from localStorage
 const users = JSON.parse(localStorage.getItem("users") || "[]");
 // DOM elements
 const emailInput = document.getElementById("email");
 const passwordInput = document.getElementById("password");
 const form = document.querySelector("form");
-// Optional message container (inserted after the form)
+// Message container (inserted after the form)
 const messageBox = document.createElement("div");
 messageBox.className = "text-center text-sm mt-4";
 form.after(messageBox);
@@ -26,8 +25,8 @@ form.addEventListener("submit", (e) => {
         // Save login state
         localStorage.setItem("userName", matchedUser.username);
         sessionStorage.setItem("isLoggedIn", "true");
-        // Redirect to exam page
-        window.location.replace("exam.html");
+        // Redirect to library page
+        window.location.replace("Library.html");
     }
     else {
         showMessage("Invalid email or password", "red");
@@ -37,3 +36,4 @@ form.addEventListener("submit", (e) => {
 function showMessage(text, color) {
     messageBox.innerHTML = `<p class="text-${color}-400">${text}</p>`;
 }
+export {};

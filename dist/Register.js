@@ -1,4 +1,3 @@
-"use strict";
 // Get input fields
 const usernameInput = document.getElementById("username");
 const emailInput = document.getElementById("email");
@@ -59,3 +58,4 @@ form.addEventListener("submit", (e) => {
 function showMessage(text, color) {
     messageBox.innerHTML = `<p class="text-${color}-400">${text}</p>`;
 }
+export {};
